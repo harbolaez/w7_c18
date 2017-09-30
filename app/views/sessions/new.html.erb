@@ -1,21 +1,25 @@
-<h1>Login</h1>
+<div class="container">
+  <h1>Login</h1>
 
-<% if flash.any? %>
+  <% if flash.any? %>
     <% flash.each do |ix, f_obj| %>
       <%= f_obj %>
     <% end %>
-<% end %>
+  <% end %>
 
-<%= form_tag("/login") do %>
+  <%= form_tag("/login", class: '') do %>
+    <div class="form-group">
+      <%= label_tag(:email)  %>
+      <%= email_field_tag :email, nil, class: 'form-control'  %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:password) %>
+      <%= password_field_tag(:password, nil, class: 'form-control') %>
+    </div>
 
-  <%= label_tag(:email)  %>
-  <%= email_field_tag :email  %>
-  <br>
-  <%= label_tag(:password) %>
-  <%= password_field_tag(:password) %>
+    <%= submit_tag "Login in", class: 'btn btn-success' %>
+    <%= link_to "Sign Up", new_user_path, class: 'btn btn-warning' %>
+  <% end %>
 
-  <%= submit_tag "Login in" %>
 
-<% end %>
-
-<%= link_to "Sign Up", new_user_path %>
+</div>

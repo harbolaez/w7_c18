@@ -1,23 +1,33 @@
-<h1>Creating a new User</h1>
+<div class="container mt-4">
+  <h1>Creating a new User</h1>
 
-
-<%= form_for(@user) do |user| %>
-  <%= user.label :first_name %>
-  <%= user.text_field :first_name %>
-  <br>
-  <%= user.label :last_name %>
-  <%= user.text_field :last_name %>
-  <br>
-  <%= user.label :email %>
-  <%= user.email_field :email %>
-  <br>
-  <%= user.label :profile_picture %>
-  <%= user.text_field :profile_picture %>
-  <br>
-  <%= user.label :password %>
-  <%= user.password_field :password %>
-  <br>
-  <%= user.label :password_confirmation %>
-  <%= user.password_field :password_confirmation %>
-  <%= user.submit %>
-<% end %>
+  <%= form_for(@user) do |user| %>
+    <%= errors_for @user %>
+    <p></p>
+    <div class="form-group">
+      <%= user.label :first_name %>
+      <%= user.text_field :first_name, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= user.label :last_name %>
+      <%= user.text_field :last_name, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= user.label :email %>
+      <%= user.email_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= user.label :profile_picture %>
+      <%= user.text_field :profile_picture, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= user.label :password %>
+      <%= user.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= user.label :password_confirmation %>
+      <%= user.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+    <%= user.submit "Create User", class: 'btn btn-success' %>
+  <% end %>
+</div>
