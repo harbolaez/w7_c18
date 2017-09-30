@@ -1,0 +1,11 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3"><%= title %></h1>
+    <p class="lead text-muted"></p>
+    <% if defined?(link_new) %>
+      <p><%= link_to "New Album", new_album_path, class: 'btn btn-primary btn-lg' %> </p>
+    <% elsif(defined?(go_back_album)) %>
+      <p><%= link_to link_name, path, class: 'btn btn-primary btn-lg' %> </p>
+    <% end %>
+  </div>
+</section>

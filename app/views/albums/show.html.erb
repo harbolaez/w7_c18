@@ -1,14 +1,35 @@
-<h1><%= @album.title %></h1>
+<%= render partial: "section_header", locals: {
+  title: "#{@album.title.titleize} Album",
+  link_name: "Go back to #{@album.title}",
+  path: root_path,
+  go_back_album: true
+} %>
 
 <% if @photos.any? %>
-  <% @photos.each do |photo| %>
-    <p>Title: <%= photo.title %></p>
-    <img src="<%= photo.picture %>" alt="<%= photo.title %>">
-    <%= link_to "Remove Picture", album_photo_path(@album, photo), method: :delete %>
-    <hr>
-  <% end %>
+  <div class="album text-muted">
+    <div class="container">
+      <div class="row">
+        <% @photos.each do |photo| %>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="<%= photo.picture %>" alt="<%= photo.title %>" style="height: 280px; width: 100%; display: block;">
+              <div class="card-block">
+                <h2 class="card-text"><%= photo.title %></h2>
+                <% if photo.caption.present? %>
+                  <p class="card-text"><%= photo.caption %></p>
+                <% end %>
+                <%= link_to "Remove Picture", album_photo_path(@album, photo), class: 'btn btn-danger', method: :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% else %>
-  <h4>For this album <strong><%= @album.title %></strong> you don't have any photo yet.
-  Why don't you create one here</h4>
-  <%= link_to "New Photo", new_album_photo_path(@album) %>
+  <div class="jumbotron text-center">
+    <h4>For this album <strong><%= @album.title %></strong> you don't have any photo yet.
+    Why don't you create one here</h4>
+    <%= link_to "New Photo", new_album_photo_path(@album), class: "btn btn-success btn-lg" %>
+  </div>
 <% end %>

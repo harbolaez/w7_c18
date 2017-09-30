@@ -1,17 +1,24 @@
-<h1><%= current_user.first_name.titleize %> Albums</h1>
-<hr>
+<%= render partial: "section_header", locals: {
+  title: "#{current_user.first_name.titleize} Albums",
+  link_new: true
+} %>
+
 <% if @albums.any? %>
   <div class="container">
-    <% @albums.each do |album| %>
-      <div class="col-md-4">
-        <h2> <%= album.title %></h2>
-        <% if album.caption %>
-          <p>Caption: <%= album.caption %></p>
-        <% end %>
-        <p><%= link_to "#{album.title}", album_path(album), class: 'btn btn-secondary' %></p>
-      </div>
-      <hr>
-    <% end %>
+    <div class="row">
+      <% @albums.each_with_index do |album, ix| %>
+        <div class="col col-md-4">
+          <div class="alert alert-success">
+            <h2> <%= album.title %></h2>
+            <% if album.caption %>
+              <p>Caption: <%= album.caption %></p>
+            <% end %>
+            <%= link_to "More info", album_path(album), class: 'btn btn-warning' %>
+            <%= link_to "Remove", album_path(album), class: 'btn btn-danger', method: :delete %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 <% else %>
   <h4>hey, <strong><%= current_user.first_name %></strong> you don't have any album yet.

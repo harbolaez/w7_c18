@@ -1,9 +1,11 @@
 <%= form_for(@album) do |album| %>
-  <%= album.label :title %>
-  <%= album.text_field :title %>
-  <br>
-  <%= album.label :caption %>
-  <%= album.text_area :caption %>
-  <br>
-  <%= album.submit %>
+  <div class="form-group">
+    <%= album.label :title %>
+    <%= album.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= album.label :caption %>
+    <%= album.text_area :caption, class: 'form-control' %>
+  </div>
+  <%= album.submit 'Create Album', class: 'btn btn-success' %>
 <% end %>

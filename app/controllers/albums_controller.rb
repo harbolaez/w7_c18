@@ -19,7 +19,7 @@ class AlbumsController < ApplicationController
     if album.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_album_path
     end
   end
 
@@ -30,6 +30,8 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    @album.destroy
+    redirect_to root_path
   end
 
   private
