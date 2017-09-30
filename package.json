@@ -1,5 +1,12 @@
 {
   "name": "w7_c18",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
+    "jquery": "^3.2.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Henry Arbolaez <henryarbolaez@gmail.com>",
+  "license": "MIT"
 }
