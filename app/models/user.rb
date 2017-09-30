@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   has_many :albums
 
+
+  # current_user.full_name
+  def full_name
+    [self.first_name, self.last_name].join(" ")
+  end
+
 end

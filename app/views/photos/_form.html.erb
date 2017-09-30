@@ -1,0 +1,12 @@
+<%= form_for([@album, @photo]) do |photo| %>
+  <%= photo.label :title %>
+  <%= photo.text_field :title %>
+  <br>
+  <%= photo.label :picture %>
+  <%= photo.text_field :picture %>
+  <br>
+  <%= photo.label :caption %>
+  <%= photo.text_area :caption %>
+  <br>
+  <%= photo.submit %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1><%= @album.title %></h1>
+
+<% if @photos.any? %>
+  <% @photos.each do |photo| %>
+    <p>Title: <%= photo.title %></p>
+    <img src="<%= photo.picture %>" alt="<%= photo.title %>">
+    <%= link_to "Remove Picture", album_photo_path(@album, photo), method: :delete %>
+    <hr>
+  <% end %>
+<% else %>
+  <h4>For this album <strong><%= @album.title %></strong> you don't have any photo yet.
+  Why don't you create one here</h4>
+  <%= link_to "New Photo", new_album_photo_path(@album) %>
+<% end %>

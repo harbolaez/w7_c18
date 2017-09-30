@@ -1,0 +1,9 @@
+<%= form_for(@album) do |album| %>
+  <%= album.label :title %>
+  <%= album.text_field :title %>
+  <br>
+  <%= album.label :caption %>
+  <%= album.text_area :caption %>
+  <br>
+  <%= album.submit %>
+<% end %>

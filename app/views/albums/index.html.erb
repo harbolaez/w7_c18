@@ -1,0 +1,20 @@
+<h1><%= current_user.first_name.titleize %> Albums</h1>
+<hr>
+<% if @albums.any? %>
+  <div class="container">
+    <% @albums.each do |album| %>
+      <div class="col-md-4">
+        <h2> <%= album.title %></h2>
+        <% if album.caption %>
+          <p>Caption: <%= album.caption %></p>
+        <% end %>
+        <p><%= link_to "#{album.title}", album_path(album), class: 'btn btn-secondary' %></p>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+<% else %>
+  <h4>hey, <strong><%= current_user.first_name %></strong> you don't have any album yet.
+  Why don't you create one here</h4>
+  <%= link_to "New Album", new_album_path %>
+<% end %>
