@@ -2,6 +2,9 @@ class PhotosController < ApplicationController
   before_action :set_album, except: [:index]
   before_action :set_photo, except: [:index]
 
+  skip_before_action :verify_authenticity_token, only: [:destroy]
+
+
   def index
   end
 
@@ -29,7 +32,7 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo.destroy
-    redirect_to @album
+    render json: { is_success: true }
   end
 
   private

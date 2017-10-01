@@ -2,7 +2,8 @@
   title: "#{@album.title.titleize} Album",
   link_name: "Go back to #{@album.title}",
   path: root_path,
-  go_back_album: true
+  go_back_album: true,
+  custom_class: "go-back-btn"
 } %>
 
 <% if @photos.any? %>
@@ -10,7 +11,7 @@
     <div class="container">
       <div class="row">
         <% @photos.each do |photo| %>
-          <div class="col-md-4">
+          <div class="col col-md-4">
             <div class="card">
               <img src="<%= photo.picture %>" alt="<%= photo.title %>" style="height: 280px; width: 100%; display: block;">
               <div class="card-block">
@@ -18,7 +19,7 @@
                 <% if photo.caption.present? %>
                   <p class="card-text"><%= photo.caption %></p>
                 <% end %>
-                <%= link_to "Remove Picture", album_photo_path(@album, photo), class: 'btn btn-danger', method: :delete %>
+                <%= link_to "Remove Picture", album_photo_path(@album, photo), class: 'btn btn-danger remove-photo' %>
               </div>
             </div>
           </div>

@@ -5,7 +5,10 @@
     <% if defined?(link_new) %>
       <p><%= link_to "New Album", new_album_path, class: 'btn btn-primary btn-lg' %> </p>
     <% elsif(defined?(go_back_album)) %>
-      <p><%= link_to link_name, path, class: 'btn btn-primary btn-lg' %> </p>
+      <p><%= link_to link_name, path,
+            class: "btn btn-primary btn-lg #{defined?(custom_class) ? custom_class : nil}"
+          %>
+      </p>
     <% end %>
   </div>
 </section>

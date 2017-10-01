@@ -13,8 +13,8 @@
             <% if album.caption %>
               <p>Caption: <%= album.caption %></p>
             <% end %>
-            <%= link_to "More info", album_path(album), class: 'btn btn-warning' %>
-            <%= link_to "Remove", album_path(album), class: 'btn btn-danger', method: :delete %>
+            <%= link_to "More info", album_path(album), class: 'btn btn-warning more-info-tag' %>
+            <%= link_to "Remove", album_path(album), class: 'btn btn-danger remove-album' %>
           </div>
         </div>
       <% end %>
